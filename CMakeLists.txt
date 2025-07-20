@@ -29,7 +29,7 @@ pico_sdk_init()
 file(GLOB INCLUDE "include/*.c")
 file(GLOB SRC "src/*.c")
 
-add_executable(fluid-simulation src/main.c ${INCLUDE})
+add_executable(fluid-simulation src/main.c ${INCLUDE} include/button.c)
 
 pico_set_program_name(fluid-simulation "fluid-simulation")
 pico_set_program_version(fluid-simulation "0.1")
@@ -50,5 +50,6 @@ target_link_libraries(fluid-simulation
         hardware_pwm
         hardware_i2c
         hardware_adc
+        pico_multicore
         )
 pico_add_extra_outputs(fluid-simulation)
